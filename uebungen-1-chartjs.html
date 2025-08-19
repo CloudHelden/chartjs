@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js Übungen</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            text-align: center;
+            background: #4a90e2;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .aufgabe {
+            background: white;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #4a90e2;
+        }
+        
+        .aufgabe h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        
+        .chart-bereich {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            min-height: 300px;
+            border: 2px dashed #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        
+        .doku-link {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+        
+        .doku-link a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .beispiel {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: auto;
+            border: 1px solid #4a5568;
+        }
+        
+        .beispiel .keyword {
+            color: #f56565;
+        }
+        
+        .beispiel .string {
+            color: #68d391;
+        }
+        
+        .beispiel .comment {
+            color: #a0aec0;
+            font-style: italic;
+        }
+        
+        .kontext {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        
+        .kontext h4 {
+            margin: 0 0 0.5rem 0;
+            color: #2c7a7b;
+        }
+        
+        .hinweis {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+        
+        .hausaufgabe {
+            background: #d4edda;
+            border: 1px solid #28a745;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 Chart.js Übungen</h1>
+        <p>Lerne Chart.js Schritt für Schritt mit der offiziellen Dokumentation</p>
+    </div>
+
+    <!-- Aufgabe 1 -->
+    <div class="aufgabe">
+        <h2>Aufgabe 1: Erstes Balkendiagramm</h2>
+        
+        <div class="kontext">
+            <h4>📊 Wann nutzt man Balkendiagramme?</h4>
+            <p>Balkendiagramme sind perfekt um <strong>kategorische Daten zu vergleichen</strong>. Sie zeigen unterschiedliche Werte für verschiedene Kategorien - wie Verkaufszahlen verschiedener Produkte, Bewertungen von Filmen oder Punkte von Sportteams.</p>
+        </div>
+        
+        <p><strong>Ziel:</strong> Erstelle ein einfaches Balkendiagramm mit diesen Daten:</p>
+        <ul>
+            <li>Labels: "Äpfel", "Bananen", "Orangen"</li>
+            <li>Werte: 12, 19, 7</li>
+        </ul>
+        
+        <div class="doku-link">
+            📖 <strong>Dokumentation:</strong> <a href="https://www.chartjs.org/docs/latest/charts/bar.html" target="_blank">Bar Chart Documentation</a>
+        </div>
+        
+        <div class="beispiel">
+<span class="comment">&lt;!-- HTML --&gt;</span>
+&lt;<span class="keyword">canvas</span> <span class="string">id</span>=<span class="string">"meinChart"</span>&gt;&lt;/<span class="keyword">canvas</span>&gt;
+
+<span class="comment">&lt;!-- JavaScript --&gt;</span>
+&lt;<span class="keyword">script</span>&gt;
+<span class="keyword">const</span> ctx = document.getElementById(<span class="string">'meinChart'</span>);
+<span class="keyword">const</span> chart = <span class="keyword">new</span> Chart(ctx, {
+    type: <span class="string">'???'</span>,  <span class="comment">// Welcher Typ für Balken?</span>
+    data: {
+        labels: [<span class="string">'???'</span>, <span class="string">'???'</span>, <span class="string">'???'</span>],  <span class="comment">// Deine Labels hier</span>
+        datasets: [{
+            label: <span class="string">'Verkäufe'</span>,
+            data: [<span class="string">???</span>, <span class="string">???</span>, <span class="string">???</span>]  <span class="comment">// Deine Zahlen hier</span>
+        }]
+    }
+});
+&lt;/<span class="keyword">script</span>&gt;
+        </div>
+        
+        <div class="chart-bereich" id="bereich1">
+            <canvas id="chart1" width="400" height="200"></canvas>
+            <p>Hier kommt dein Chart hin</p>
+        </div>
+        
+        <div class="hinweis">
+            💡 <strong>Tipp:</strong> Schaue in der Dokumentation nach dem "type" für Balkendiagramme!
+        </div>
+    </div>
+
+    <!-- Aufgabe 2 -->
+    <div class="aufgabe">
+        <h2>Aufgabe 2: Tortendiagramm mit Farben</h2>
+        
+        <div class="kontext">
+            <h4>🥧 Wann nutzt man Tortendiagramme?</h4>
+            <p>Tortendiagramme zeigen <strong>Anteile eines Ganzen</strong>. Sie sind ideal um zu zeigen, wie sich 100% auf verschiedene Kategorien aufteilen - wie Marktanteile, Budgetverteilung oder Umfrageergebnisse in Prozent.</p>
+        </div>
+        
+        <p><strong>Ziel:</strong> Erstelle ein Tortendiagramm für Lieblingsfarben:</p>
+        <ul>
+            <li>Rot: 25, Blau: 30, Grün: 20, Gelb: 15</li>
+            <li>Verwende passende Farben für jedes Segment</li>
+        </ul>
+        
+        <div class="doku-link">
+            📖 <strong>Dokumentation:</strong> <a href="https://www.chartjs.org/docs/latest/charts/doughnut.html" target="_blank">Pie & Doughnut Chart Documentation</a>
+        </div>
+        
+        <div class="beispiel">
+<span class="keyword">const</span> chart = <span class="keyword">new</span> Chart(ctx, {
+    type: <span class="string">'???'</span>,  <span class="comment">// Welcher Typ für Tortendiagramm?</span>
+    data: {
+        labels: [<span class="string">'Rot'</span>, <span class="string">'Blau'</span>, <span class="string">'???'</span>, <span class="string">'???'</span>],
+        datasets: [{
+            data: [<span class="string">25</span>, <span class="string">30</span>, <span class="string">???</span>, <span class="string">???</span>],
+            backgroundColor: [
+                <span class="string">'#ff4444'</span>,    <span class="comment">// Rot</span>
+                <span class="string">'#4444ff'</span>,    <span class="comment">// Blau</span>
+                <span class="string">'???'</span>,        <span class="comment">// Grün - welche Farbe?</span>
+                <span class="string">'???'</span>         <span class="comment">// Gelb - welche Farbe?</span>
+            ]
+        }]
+    }
+});
+        </div>
+        
+        <div class="chart-bereich" id="bereich2">
+            <canvas id="chart2" width="400" height="200"></canvas>
+            <p>Hier kommt dein Tortendiagramm hin</p>
+        </div>
+        
+        <div class="hinweis">
+            💡 <strong>Tipp:</strong> Für Tortendiagramm verwende type: 'pie'. Schaue nach "backgroundColor" in der Doku!
+        </div>
+    </div>
+
+    <!-- Aufgabe 3 -->
+    <div class="aufgabe">
+        <h2>Aufgabe 3: Liniendiagramm für Temperaturen</h2>
+        
+        <div class="kontext">
+            <h4>📈 Wann nutzt man Liniendiagramme?</h4>
+            <p>Liniendiagramme sind perfekt für <strong>Daten über Zeit</strong>. Sie zeigen Trends und Entwicklungen - wie Temperaturverläufe, Aktienkurse, Webseitenbesucher oder Lernfortschritte über Wochen/Monate.</p>
+        </div>
+        
+        <p><strong>Ziel:</strong> Zeige die Temperatur einer Woche:</p>
+        <ul>
+            <li>Tage: Mo, Di, Mi, Do, Fr, Sa, So</li>
+            <li>Temperaturen: 18, 22, 25, 23, 20, 24, 26 (°C)</li>
+        </ul>
+        
+        <div class="doku-link">
+            📖 <strong>Dokumentation:</strong> <a href="https://www.chartjs.org/docs/latest/charts/line.html" target="_blank">Line Chart Documentation</a>
+        </div>
+        
+        <div class="beispiel">
+<span class="keyword">const</span> chart = <span class="keyword">new</span> Chart(ctx, {
+    type: <span class="string">'???'</span>,  <span class="comment">// Welcher Typ für Linien?</span>
+    data: {
+        labels: [<span class="string">'Mo'</span>, <span class="string">'Di'</span>, <span class="string">'???'</span>, <span class="string">'???'</span>, <span class="string">'???'</span>, <span class="string">'???'</span>, <span class="string">'???'</span>],
+        datasets: [{
+            label: <span class="string">'Temperatur (°C)'</span>,
+            data: [<span class="string">18</span>, <span class="string">22</span>, <span class="string">???</span>, <span class="string">???</span>, <span class="string">???</span>, <span class="string">???</span>, <span class="string">???</span>],
+            borderColor: <span class="string">'#ff6b6b'</span>,        <span class="comment">// Farbe der Linie</span>
+            backgroundColor: <span class="string">'#ff6b6b20'</span>    <span class="comment">// Füllfarbe (optional)</span>
+        }]
+    }
+});
+        </div>
+        
+        <div class="chart-bereich" id="bereich3">
+            <canvas id="chart3" width="400" height="200"></canvas>
+            <p>Hier kommt dein Liniendiagramm hin</p>
+        </div>
+        
+        <div class="hinweis">
+            💡 <strong>Tipp:</strong> Verwende type: 'line' und füge borderColor hinzu für eine schöne Linie!
+        </div>
+    </div>
+
+    <!-- Aufgabe 4 -->
+    <div class="aufgabe">
+        <h2>Aufgabe 4: Doughnut Chart anpassen</h2>
+        
+        <div class="kontext">
+            <h4>🍩 Was ist der Unterschied zwischen Pie und Doughnut?</h4>
+            <p>Doughnut Charts sind wie Tortendiagramme, aber mit einem <strong>Loch in der Mitte</strong>. Das sieht moderner aus und man kann zusätzliche Informationen in die Mitte schreiben. Beide zeigen Anteile von einem Ganzen.</p>
+        </div>
+        
+        <p><strong>Ziel:</strong> Erstelle ein Doughnut-Diagramm und ändere die Legende:</p>
+        <ul>
+            <li>Verwende die gleichen Daten wie bei Aufgabe 2</li>
+            <li>Ändere die Position der Legende nach unten</li>
+        </ul>
+        
+        <div class="doku-link">
+            📖 <strong>Dokumentation:</strong> <a href="https://www.chartjs.org/docs/latest/configuration/legend.html" target="_blank">Legend Configuration</a>
+        </div>
+        
+        <div class="beispiel">
+<span class="keyword">const</span> chart = <span class="keyword">new</span> Chart(ctx, {
+    type: <span class="string">'doughnut'</span>,  <span class="comment">// Doughnut statt pie</span>
+    data: {
+        <span class="comment">// ... deine Daten hier ...</span>
+    },
+    options: {
+        plugins: {
+            legend: {
+                position: <span class="string">'???'</span>  <span class="comment">// 'top', 'bottom', 'left', 'right'</span>
+            }
+        }
+    }
+});
+        </div>
+        
+        <div class="chart-bereich" id="bereich4">
+            <canvas id="chart4" width="400" height="200"></canvas>
+            <p>Hier kommt dein Doughnut Chart hin</p>
+        </div>
+        
+        <div class="hinweis">
+            💡 <strong>Tipp:</strong> Die Legende wird über "options" → "plugins" → "legend" konfiguriert!
+        </div>
+    </div>
+
+    <!-- Aufgabe 5 -->
+    <div class="aufgabe">
+        <h2>Aufgabe 5: Achsen beschriften</h2>
+        
+        <div class="kontext">
+            <h4>📝 Warum sind Beschriftungen wichtig?</h4>
+            <p>Beschriftungen machen Charts <strong>verständlicher</strong>! Ohne Titel weiß niemand worum es geht, ohne Achsenbeschriftungen weiß niemand was die Zahlen bedeuten. Gute Beschriftungen = professionelle Charts.</p>
+        </div>
+        
+        <p><strong>Ziel:</strong> Erstelle ein Balkendiagramm mit beschrifteten Achsen:</p>
+        <ul>
+            <li>Y-Achse: "Verkäufe (Stück)"</li>
+            <li>Titel: "Monatsverkäufe"</li>
+            <li>Daten: Jan: 50, Feb: 75, Mär: 60</li>
+        </ul>
+        
+        <div class="doku-link">
+            📖 <strong>Dokumentation:</strong> <a href="https://www.chartjs.org/docs/latest/axes/" target="_blank">Axes Documentation</a><br>
+            📖 <strong>Titel:</strong> <a href="https://www.chartjs.org/docs/latest/configuration/title.html" target="_blank">Title Configuration</a>
+        </div>
+        
+        <div class="beispiel">
+<span class="keyword">const</span> chart = <span class="keyword">new</span> Chart(ctx, {
+    type: <span class="string">'bar'</span>,
+    data: {
+        <span class="comment">// ... deine Daten hier ...</span>
+    },
+    options: {
+        plugins: {
+            title: {
+                display: <span class="keyword">true</span>,
+                text: <span class="string">'???'</span>  <span class="comment">// Dein Titel hier</span>
+            }
+        },
+        scales: {
+            y: {
+                title: {
+                    display: <span class="keyword">true</span>,
+                    text: <span class="string">'???'</span>  <span class="comment">// Y-Achsen Beschriftung</span>
+                }
+            }
+        }
+    }
+});
+        </div>
+        
+        <div class="chart-bereich" id="bereich5">
+            <canvas id="chart5" width="400" height="200"></canvas>
+            <p>Hier kommt dein beschriftetes Diagramm hin</p>
+        </div>
+        
+        <div class="hinweis">
+            💡 <strong>Tipp:</strong> Vergiss nicht "display: true" für Titel und Achsenbeschriftungen!
+        </div>
+    </div>
+
+    <!-- Aufgabe 6 -->
+    <div class="aufgabe">
+        <h2>Aufgabe 6: Horizontales Balkendiagramm</h2>
+        
+        <div class="kontext">
+            <h4>↔️ Wann horizontale statt vertikale Balken?</h4>
+            <p>Horizontale Balken sind besser wenn du <strong>lange Kategorienamen</strong> hast oder wenn du Rankings zeigst. Sie sind auch einfacher zu lesen bei vielen Kategorien. Perfekt für: Umfrageergebnisse, Top-Listen, Skillbewertungen.</p>
+        </div>
+        
+        <p><strong>Ziel:</strong> Erstelle horizontale Balken für Programmierskills:</p>
+        <ul>
+            <li>HTML: 90, CSS: 75, JavaScript: 60</li>
+            <li>Verwende horizontale Balken</li>
+            <li>Füge passende Farben hinzu</li>
+        </ul>
+        
+        <div class="doku-link">
+            📖 <strong>Dokumentation:</strong> <a href="https://www.chartjs.org/docs/latest/charts/bar.html#horizontal-bar-chart" target="_blank">Horizontal Bar Chart</a>
+        </div>
+        
+        <div class="beispiel">
+<span class="keyword">const</span> chart = <span class="keyword">new</span> Chart(ctx, {
+    type: <span class="string">'bar'</span>,  <span class="comment">// Immer noch 'bar'</span>
+    data: {
+        labels: [<span class="string">'HTML'</span>, <span class="string">'CSS'</span>, <span class="string">'JavaScript'</span>],
+        datasets: [{
+            label: <span class="string">'Skill Level (%)'</span>,
+            data: [<span class="string">???</span>, <span class="string">???</span>, <span class="string">???</span>],
+            backgroundColor: [<span class="string">'#e34c26'</span>, <span class="string">'#1572b6'</span>, <span class="string">'#f7df1e'</span>]
+        }]
+    },
+    options: {
+        indexAxis: <span class="string">'???'</span>  <span class="comment">// 'x' oder 'y' für horizontal?</span>
+    }
+});
+        </div>
+        
+        <div class="chart-bereich" id="bereich6">
+            <canvas id="chart6" width="400" height="200"></canvas>
+            <p>Hier kommt dein horizontales Balkendiagramm hin</p>
+        </div>
+        
+        <div class="hinweis">
+            💡 <strong>Tipp:</strong> Für horizontale Balken brauchst du indexAxis: 'y' in den options!
+        </div>
+    </div>
+    <div class="hausaufgabe" style="background: #e8f5e8; border-color: #28a745;">
+    <h3>🚀 Für schnelle Teilnehmer: Zusatzaufgaben</h3>
+    <p>Wenn du mit den Grundaufgaben fertig bist, probiere diese erweiterten Features aus:</p>
+    <ul>
+        <li> <strong>Animationen hinzufügen:</strong> Lass deine Charts beim Laden animieren</li>
+        <li><strong>Hover-Effekte anpassen:</strong> Verändere was beim Überfahren mit der Maus passiert</li>
+        <li><strong>Mehrere Datasets:</strong> Zeige verschiedene Datenreihen in einem Chart</li>
+        <li><strong>Responsive Design:</strong> Teste wie deine Charts auf dem Handy aussehen</li>
+        <li><strong>Eigene Farbpaletten:</strong> Entwickle harmonische Farbkombinationen</li>
+        <li><strong>Mixed Charts:</strong> Kombiniere Balken und Linien in einem Diagramm</li>
+    </ul>
+    
+    <div class="doku-link">
+        📖 <strong>Für Profis:</strong> <a href="https://www.chartjs.org/docs/latest/configuration/animations.html" target="_blank">Animations</a> | 
+        <a href="https://www.chartjs.org/docs/latest/charts/mixed.html" target="_blank">Mixed Charts</a> | 
+        <a href="https://www.chartjs.org/docs/latest/configuration/interactions.html" target="_blank">Interactions</a>
+    </div>
+</div>
+</body>
+</html>

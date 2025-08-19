@@ -58,6 +58,78 @@
   </div>
       <!-- Hier kommen die Charts rein -->
   <script>
+       new Chart(document.getElementById('barChart'),{
+        type: 'bar',
+        data: {
+          labels:['Rot', 'Blau', 'Gelb', 'Grün', 'Lila', 'Orange'],
+          datasets:[{
+            label: 'Beispielfarben',
+            data:[10, 20, 30, 40, 50, 60],
+            backgroundColor: ['red', 'blue', 'yellow', 'green', 'purple', 'orange']
+          }]
+        },
+       }
+      );
+       new Chart(document.getElementById('doughnutChart'),{
+        type: 'doughnut',
+        data: {
+          labels: ['Äpfel', 'Birnen', 'Kirschen'],
+          datasets:[{
+            label: 'Früchte',
+            data:[10,20,30],
+            backgroundColor:['red','yellow','green']
+        }]
+       }}
+      );
+      new Chart(document.getElementById('lineChart'),{
+        type: 'line',
+          data: {
+            labels: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun'],
+            datasets: [{
+              label: 'Monatswerte',
+              data: [3, 10, 5, 8, 15, 7],
+              fill: true,
+              borderColor: 'blue',
+              tension: 0.3
+        }]
+      }
+      });
+    new Chart(document.getElementById('radarChart'), {
+      type: 'radar',
+      data: {
+        labels: ['AWS', 'Javascript', 'Linux', 'Python', 'Azure'],
+        datasets: [{
+          label: 'Skills Eddy',
+          data: [8, 6, 7, 5, 9],
+          fill: true,
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgb(54, 162, 235)',
+          pointBackgroundColor: 'rgb(54, 162, 235)'
+        },
+        {
+            label: 'Skills Markus',
+            data: [9, 7, 8, 6, 1],
+            fill: true,
+            backgroundColor: 'rgba(255, 162, 235, 0.2)',
+            borderColor: 'red',
+            pointBackgroundColor: 'red',
+          }]
+      },
+     options: {
+        scales: {
+          r: {
+            beginAtZero: false,  // startet bei 0
+            min: 0,
+            max: 15,
+            ticks: {
+              stepSize: 5,                // Zahlenabstände (0,2,4,6,8,10)
+              color: 'red',             // Schriftfarbe der Zahlen
+              backdropColor: 'yellow' // Hintergrundkästchen ausschalten
+            }
+          }
+        }
+      }
+    });
 
   </script>
 </body>
